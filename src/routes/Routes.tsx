@@ -6,10 +6,12 @@ import NotFound from "../pages/NotFound";
 import Login from "@/pages/Login";
 import Signup from "@/pages/Signup";
 import Dashboard from "@/pages/Dashboard";
-import Communication from "@/pages/Communication";
+
 import User from "@/pages/User";
-import Chats from "@/pages/Chats";
+import { Chat } from "@/pages/Chats";
 import Recognition from "@/pages/Recognition";
+import { CompanyUpdate } from "@/pages/CompanyUpdate";
+import { Communication } from "@/pages/Communication";
 
 
 const routes = createBrowserRouter([
@@ -26,17 +28,20 @@ const routes = createBrowserRouter([
       },
       {
         path: "/communication",
-        // Parent component
-        children: [ // <-- Ekhane children array add korte hobe
+        element: <Communication />, // Parent layout component for Chat & Community
+        children: [
           {
-            path: "messages", // Full path will be /communication/messages
-            element: <Chats></Chats>
+            index: true, // Default child route for /communication (e.g., show chat by default)
+            element: <Chat />
           },
           {
-            path: "recognition", // Full path will be /communication/notifications
+            path: "chat", // Full path: /communication/chat
+            element: <Chat />
+          },
+          {
+            path: "recognition", // Full path: /communication/community
             element: <Recognition></Recognition>
           }
-          // Aro children routes lagle ekhane add kora jabe
         ]
       },
       {

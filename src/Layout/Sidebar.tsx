@@ -42,11 +42,13 @@ const navigation: NavigationItem[] = [
     },
     {
         name: 'Communication',
+        path: '/communication',
+
         icon: MessageSquare,
         hasSubmenu: true,
         submenu: [
-            { name: 'Recognition', icon: Award, path: '/communication/recognition' },
-            { name: 'Messages', icon: Mail, path: '/communication/messages' }
+            { name: 'Messages', icon: Award, path: '/communication/chat' },
+            { name: 'Recognition', icon: Mail, path: '/communication/recognition' }
         ]
     },
     {
